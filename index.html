@@ -1,81 +1,151 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Happy Rose Day 🌸</title><style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day 🌹</title>
+
+<style>
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffc0cb, #ffd6e0, #fff0f5);
-  color: #6b0033;
-  text-align: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffc0cb, #ffb6c1, #ffe4e1);
+    text-align: center;
 }
 
-.gate {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #fff5f8, #ffccd5);
+/* ---- PAGES ---- */
+.page {
+    display: none;
+    padding: 20px;
 }
 
-.hidden { display: none; }
-
-.mainImg {
-  width: 270px;
-  border-radius: 16px;
-  cursor: pointer;
-  border: 3px solid #ff69b4;
-  transition: .3s;
+.active {
+    display: block;
 }
 
-.mainImg:hover {
-  transform: scale(1.06);
+/* ---- ENTER PAGE ---- */
+#enterPage img {
+    width: 280px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255,0,100,0.3);
+    cursor: pointer;
+    margin-top: 120px;
+    transition: 0.3s;
 }
 
-.finalImg {
-  width: 300px;
-  border-radius: 16px;
-  border: 3px solid #ff69b4;
-  margin-bottom: 15px;
+#enterPage img:hover {
+    transform: scale(1.05);
 }
 
-h1 {
-  background: rgba(255,255,255,0.8);
-  padding: 15px 20px;
-  border-radius: 14px;
-  border: 2px solid #ff69b4;
-}
-</style></head>
-<body><!-- SCREEN 1 : ENTER WITH FIRST PICTURE --><div id="step1" class="gate">
-  <h2>Tap the picture 🌹</h2>  <!-- FIRST IMAGE (you will give the link) --><img class="mainImg"
-src="https://ibb.co/WjbVLR0/download"
-onclick="enter()" />
-
-  <p style="opacity:.8">because everyone deserves flowers </p>
-alt="rose day picture" />
-
-  <h1>ADMIT IT, IM THE BEST</h1>
-</div><script>
-function enter(){
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('final').classList.remove('hidden');
+/* ---- MAIN PAGE ---- */
+.rose {
+    font-size: 120px;
+    margin-top: 20px;
+    animation: float 3s infinite;
 }
 
-// soft petal effect
-setInterval(() => {
-  const p = document.createElement('div');
-  p.innerText = '🌸';
-  p.style.position = 'fixed';
-  p.style.left = Math.random()*100 + 'vw';
-  p.style.top = '-10px';
-  p.style.transition = '5s';
-  document.body.appendChild(p);
-  setTimeout(()=>{ p.style.top = '110vh'; }, 100);
-  setTimeout(()=> p.remove(), 5000);
-}, 900);
-</script></body>
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.message {
+    background: white;
+    color: #c2185b;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* ---- BUTTONS ---- */
+.btn {
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.secret {
+    opacity: 0.1;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== PAGE 1 ===== -->
+<div id="enterPage" class="page active">
+    <h2>Tap the cat to enter 🌸</h2>
+
+    <!-- REPLACE THIS LINK WITH YOUR IMAGE -->
+    <img src="https://media1.tenor.com/m/jvsVBSMabc4AAAAC/rose-cat-give-give-rose-to-cat.gif" onclick="showPage('mainPage')">
+</div>
+
+
+<!-- ===== PAGE 2 ===== -->
+<div id="mainPage" class="page">
+
+<div class="rose">🌹</div>
+
+<div class="message">
+Dear amazing friend,<br><br>
+
+This Rose Day is not about romance,  
+it’s about gratitude.  
+Gratitude for the laughter you bring,  
+the support you give,  
+and the strength you share without even realizing it.<br><br>
+
+You make ordinary days feel special  
+and difficult days feel lighter.  
+I’m lucky to have such a kind, powerful, beautiful soul in my life.<br><br>
+
+<strong>EVERYONE DESERVES FLOWERS</strong> —  
+and today these roses are for you,  
+for your dreams, your hearts, and your friendship. 🌸
+</div>
+
+<button class="btn" onclick="alert('Happy Rose Day to my wonderful friend! 💖')">
+Tap for a smile
+</button>
+
+<!-- SECRET BUTTON -->
+<button class="secret" onclick="showPage('secretPage')">🤫</button>
+
+</div>
+
+
+<!-- ===== PAGE 3 (SECRET) ===== -->
+<div id="secretPage" class="page">
+
+<h1 style="margin-top:120px;color:#c2185b;">
+YOU HAVE TO ADMIT,<br>I AM THE BEST 😌
+</h1>
+
+<button class="btn" onclick="showPage('mainPage')">
+Go Back
+</button>
+
+</div>
+
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
 </html>
-
-
