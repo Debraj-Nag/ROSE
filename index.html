@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Happy Rose Day 🌸</title>
-
-<style>
+<title>Happy Rose Day 🌸</title><style>
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffb6c1, #ffd1dc, #ffe4e9);
+  background: linear-gradient(135deg, #ffc0cb, #ffd6e0, #fff0f5);
   color: #6b0033;
   text-align: center;
 }
@@ -20,39 +17,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, #fff5f8, #ffc0cb);
+  background: radial-gradient(circle at center, #fff5f8, #ffccd5);
 }
 
 .hidden { display: none; }
 
-.card {
-  background: rgba(255,255,255,0.8);
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 16px;
-  max-width: 720px;
-  border: 2px solid #ff69b4;
-}
-
-button {
-  background: #ff69b4;
-  border: none;
-  padding: 12px 18px;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #ff85c2;
-  transform: scale(1.05);
-}
-
 .mainImg {
-  width: 260px;
-  border-radius: 14px;
+  width: 270px;
+  border-radius: 16px;
   cursor: pointer;
   border: 3px solid #ff69b4;
   transition: .3s;
@@ -62,69 +34,38 @@ button:hover {
   transform: scale(1.06);
 }
 
-.memeImg {
-  width: 320px;
-  border-radius: 14px;
+.finalImg {
+  width: 300px;
+  border-radius: 16px;
   border: 3px solid #ff69b4;
+  margin-bottom: 15px;
 }
 
-.secret {
-  opacity: 0.25;
+h1 {
+  background: rgba(255,255,255,0.8);
+  padding: 15px 20px;
+  border-radius: 14px;
+  border: 2px solid #ff69b4;
 }
+</style></head>
+<body><!-- SCREEN 1 : ENTER WITH FIRST PICTURE --><div id="step1" class="gate">
+  <h2>Tap the picture 🌹</h2>  <!-- FIRST IMAGE (you will give the link) --><img class="mainImg"
+src="https://ibb.co/WjbVLR0/download"
+onclick="enter()" />
 
-.secret:hover {
-  opacity: 1;
-}
-</style>
-</head>
-<body>
+  <p style="opacity:.8">because everyone deserves flowers</p>
+</div><!-- FINAL SCREEN --><div id="final" class="gate hidden">  <!-- SECOND IMAGE ABOVE TEXT --><img class="finalImg"
+src="https://ibb.co/GvjjQRNr/download"
+alt="rose day picture" />
 
-<!-- STEP 1 -->
-<div id="step1" class="gate">
-  <h2>Click the picture 🌹</h2>
-
-  <!-- Using your new GIF link -->
-  <img class="mainImg"
-   src="https://media1.tenor.com/m/jvsVBSMabc4AAAAC/rose-cat-give-give-rose-to-cat.gif"
-   onclick="goNext()" />
-
-  <p style="opacity:.8">everyone deserves flowers</p>
-</div>
-
-
-<!-- STEP 2 -->
-<div id="step2" class="gate hidden">
-
-  <div class="card">
-    <!-- Meme kept local-style friendly: you can replace with a file like meme.jpg anytime -->
-    <img class="memeImg" src="meme.jpg" alt="rose day meme" />
-
-    <h2>HAPPY ROSE DAY</h2>
-
-    <button class="secret" onclick="secret()">secret</button>
-  </div>
-
-</div>
-
-
-<!-- FINAL -->
-<div id="final" class="gate hidden">
   <h1>ADMIT IT, IM THE BEST</h1>
-</div>
-
-
-<script>
-function goNext(){
+</div><script>
+function enter(){
   document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
-}
-
-function secret(){
-  document.getElementById('step2').classList.add('hidden');
   document.getElementById('final').classList.remove('hidden');
 }
 
-// petal effect
+// soft petal effect
 setInterval(() => {
   const p = document.createElement('div');
   p.innerText = '🌸';
@@ -136,7 +77,6 @@ setInterval(() => {
   setTimeout(()=>{ p.style.top = '110vh'; }, 100);
   setTimeout(()=> p.remove(), 5000);
 }, 900);
-</script>
-
-</body>
+</script></body>
 </html>
+
