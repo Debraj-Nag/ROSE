@@ -1,83 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day 🌹</title>
+<title>Rose Day Wishes 🌹</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffc0cb, #ffb6c1, #ffe4e1);
+    background: #ffd6e5;
+    font-family: Arial;
     text-align: center;
 }
 
-/* ---- PAGES ---- */
+/* ----- PAGES ----- */
 .page {
     display: none;
-    padding: 20px;
 }
 
 .active {
     display: block;
 }
 
-/* ---- ENTER PAGE ---- */
-#enterPage img {
-    width: 280px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255,0,100,0.3);
-    cursor: pointer;
+/* ----- ENTER PAGE ----- */
+.enter-img {
+    width: 260px;
     margin-top: 120px;
-    transition: 0.3s;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff69b4;
 }
 
-#enterPage img:hover {
-    transform: scale(1.05);
-}
-
-/* ---- MAIN PAGE ---- */
+/* ----- MAIN PAGE ----- */
 .rose {
-    font-size: 120px;
+    font-size: 110px;
     margin-top: 20px;
-    animation: float 3s infinite;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-.message {
+.box {
     background: white;
-    color: #c2185b;
-    padding: 20px;
-    border-radius: 15px;
     max-width: 700px;
     margin: 20px auto;
-    font-size: 18px;
+    padding: 20px;
+    border-radius: 15px;
+    color: #b30047;
     line-height: 1.6;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-/* ---- BUTTONS ---- */
+/* ----- BUTTONS ----- */
 .btn {
-    background: #e91e63;
+    background: #ff4081;
     color: white;
     border: none;
-    padding: 10px 18px;
+    padding: 10px 16px;
     border-radius: 20px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 .secret {
-    opacity: 0.1;
     position: fixed;
     bottom: 10px;
     right: 10px;
+    opacity: 0.15;
 }
 </style>
 </head>
@@ -85,64 +67,71 @@ body {
 <body>
 
 <!-- ===== PAGE 1 ===== -->
-<div id="enterPage" class="page active">
-    <h2>Tap the cat to enter 🌸</h2>
+<div id="page1" class="page active">
 
-    <!-- REPLACE THIS LINK WITH YOUR IMAGE -->
-    <img src="https://media1.tenor.com/m/jvsVBSMabc4AAAAC/rose-cat-give-give-rose-to-cat.gif" onclick="showPage('mainPage')">
+<h2>Tap the silly cat</h2>
+
+<img class="enter-img"
+src="https://i.pinimg.com/736x/92/e2/a1/92e2a16d67e0777fe943b19f0e4eecce.jpg"
+onclick="show('page2')">
+
+<p>because everyone deserves flowers</p>
+
 </div>
 
 
 <!-- ===== PAGE 2 ===== -->
-<div id="mainPage" class="page">
+<div id="page2" class="page">
 
 <div class="rose">🌹</div>
 
-<div class="message">
-Dear amazing friend,<br><br>
+<div class="box">
 
-This Rose Day is not about romance,  
-it’s about gratitude.  
-Gratitude for the laughter you bring,  
-the support you give,  
-and the strength you share without even realizing it.<br><br>
+Dear wonderful friend,<br><br>
 
-You make ordinary days feel special  
-and difficult days feel lighter.  
-I’m lucky to have such a kind, powerful, beautiful soul in my life.<br><br>
+This Rose Day is for you —  
+not for romance, but for appreciation.<br><br>
 
-<strong>EVERYONE DESERVES FLOWERS</strong> —  
-and today these roses are for you,  
-for your dreams, your hearts, and your friendship. 🌸
+Thank you for the laughs, the memories,  
+the silly moments and the serious talks.  
+Life feels kinder and brighter because you exist in it.<br><br>
+
+<strong>EVERYONE DESERVES FLOWERS</strong><br><br>
+
+And today these roses are for you —  
+for your kindness, your strength,  
+and the beautiful energy you bring to my life. 🌸
+
 </div>
 
-<button class="btn" onclick="alert('Happy Rose Day to my wonderful friend! 💖')">
+<button class="btn" onclick="alert('Happy Rose Day my lovely friend! 💖')">
 Tap for a smile
 </button>
 
-<!-- SECRET BUTTON -->
-<button class="secret" onclick="showPage('secretPage')">🤫</button>
+<button class="secret" onclick="show('page3')">secret</button>
 
 </div>
 
 
-<!-- ===== PAGE 3 (SECRET) ===== -->
-<div id="secretPage" class="page">
+<!-- ===== PAGE 3 ===== -->
+<div id="page3" class="page">
 
-<h1 style="margin-top:120px;color:#c2185b;">
-YOU HAVE TO ADMIT,<br>I AM THE BEST 😌
+<h1 style="margin-top:140px;color:#b30047;">
+YOU HAVE TO ADMIT,<br>
+I AM THE BEST 😌
 </h1>
 
-<button class="btn" onclick="showPage('mainPage')">
-Go Back
-</button>
+<button class="btn" onclick="show('page2')">Go Back</button>
 
 </div>
 
 
 <script>
-function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+function show(id) {
+    document.getElementById('page1').classList.remove('active');
+    document.getElementById('page2').classList.remove('active');
+    document.getElementById('page3').classList.remove('active');
+
     document.getElementById(id).classList.add('active');
 }
 </script>
